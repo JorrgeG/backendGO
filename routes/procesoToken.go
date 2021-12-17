@@ -25,7 +25,7 @@ func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
 	}
 
 	tk = strings.TrimSpace(splitToken[1])
-	tkn, err := jwt.ParseWithClaims(tk, claims, func(t *jwt.Token) (interface{}, error) {
+	tkn, err := jwt.ParseWithClaims(tk, claims, func(token *jwt.Token) (interface{}, error) {
 		return miClave, nil
 	})
 	if err == nil {
